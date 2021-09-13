@@ -6,13 +6,13 @@ const TextAnimation = dynamic(() => import("./TextAnimation"));
 // function? 
 const Page1 = () => {
     return (
-      <Container className="flex fixed">
+      <Container className="scrollPage">
 				<TextAnimation />
 			</Container>
     );
 }
 
-const Container = styled.div`
+const Container = styled.section`
 	width: 100%;
 `;
 

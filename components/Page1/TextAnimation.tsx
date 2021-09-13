@@ -40,17 +40,11 @@ const TextAnimation = () => {
 
     }, []);
 
-		const [isShown, setIsShown] = useState(true);
-		useEffect(() => {
-			window.addEventListener("scroll", () => {
-				if (innerHeight < pageYOffset) setIsShown(false);
-				else setIsShown(true);
-			});
-		}, []);
 
     return (
         <>
-					<Container ref={startTrigger} isShown={isShown}>
+					<Container ref={startTrigger}>
+
 						<div className="text">
 							<div className="text__content" ref={text1}>
 								KIM JI MIN
@@ -68,7 +62,6 @@ const TextAnimation = () => {
 								justifyContent: "center"
 							}}
 						>
-							<Circle />
 						</div>
 						<div className="text">
 							<div className="text__content__border" ref={borderText1}>
@@ -83,12 +76,11 @@ const TextAnimation = () => {
     );
 };
 
-const Container = styled.div<{ isShown: boolean }>`
+const Container = styled.section`
   display: flex;
 	align-items: center;
 	width: 100%;
 	height: 100vh;
-	opacity: ${({ isShown }) => (isShown ? 1 : 0)};
 	overflow: hidden;
 
 	.text {
@@ -125,14 +117,6 @@ const Container = styled.div<{ isShown: boolean }>`
 			font-size: 6rem;
 		}
 	}
-`;
-
-const Circle = styled.div`
-	position: relative;
-	width: 35rem;
-	height: 35rem;
-	border-radius: 50%;
-	background-color: yellow;
 `;
 
 export default TextAnimation;
